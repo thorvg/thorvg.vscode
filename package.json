@@ -1,0 +1,85 @@
+{
+  "name": "thorvg-viewer",
+  "displayName": "ThorVG Viewer",
+  "description": "View and preview Lottie animations and SVG files with ThorVG rendering engine",
+  "version": "0.0.1",
+  "publisher": "ThorVG",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thorvg/thorvg.vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "lottie",
+    "svg",
+    "animation",
+    "thorvg",
+    "viewer",
+    "preview"
+  ],
+  "main": "./out/extension.js",
+  "browser": "./out/web/extension.js",
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "thorvg-viewer.openThorVGViewer",
+        "title": "ThorVG: Open Viewer"
+      },
+      {
+        "command": "thorvg-viewer.openThorVGViewerWithCurrentFile",
+        "title": "ThorVG: Open Viewer with Current File",
+        "icon": {
+          "light": "./thorvg.viewer/favicon.svg",
+          "dark": "./media/favicon_white.svg"
+        }
+      },
+      {
+        "command": "thorvg-viewer.openExtensionFolder",
+        "title": "ThorVG: Open Extension Folder"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "thorvg-viewer.openThorVGViewerWithCurrentFile",
+          "when": "resourceExtname == .json || resourceExtname == .svg || resourceExtname == .lot || resourceExtname == .png",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile && npm run package-web",
+    "compile": "tsc -p ./",
+    "check-types:web": "tsc --noEmit -p tsconfig.web.json",
+    "compile:web": "npm run check-types:web && node esbuild.js",
+    "watch": "tsc -watch -p ./",
+    "watch:web": "node esbuild.js --watch",
+    "package-web": "npm run check-types:web && node esbuild.js --production",
+    "open:web": "npm run compile:web && npx @vscode/test-web --quality stable --extensionDevelopmentPath . --host localhost --port 3112 --esm",
+    "open:web:headless": "npm run compile:web && npx @vscode/test-web --quality stable --extensionDevelopmentPath . --host localhost --port 3112 --esm --browserType chromium --headless --verbose",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "esbuild": "^0.27.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+}
