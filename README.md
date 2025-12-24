@@ -1,24 +1,38 @@
-# ThorVG Viewer for VSCode
+# ThorVG Viewer for VS Code
 
-A Visual Studio Code extension that integrates [ThorVG Viewer](https://github.com/thorvg/thorvg.viewer) for viewing and previewing Lottie animations, SVG files, and others.
+A Visual Studio Code extension that integrates [ThorVG Viewer](https://github.com/thorvg/thorvg.viewer) for previewing Lottie animations and SVG files directly inside the editor.
 
+## Contents
+- [ThorVG Viewer for VS Code](#thorvg-viewer-for-vs-code)
+  - [Features](#features)
+  - [Usage](#usage)
+    - [Opening ThorVG Viewer](#opening-thorvg-viewer)
+    - [Commands](cCommands)
+  - [Development](#development)
+    - [Project Launch & Task Configuration](#project-launch--task-configuration)
+    - [Package Extension](#package-extension)
+    - [Requirements](#requirements)
+  - [Communication](#communication)
+
+ [](#contents)
+ <br />
 
 ## Features
 
-- **Real-time Preview**: View Lottie (.json, .lot) and SVG files directly in VSCode
+- **Real-time Preview**: View Lottie (`.json`, `.lot`) and SVG files directly in VSCode
 
 ![preview](https://github.com/user-attachments/assets/b30cf427-9a12-449a-adaa-3062141ba831)
 
-
-- **Auto-sync**: Automatically updates preview when you edit the file
+- **Auto-sync**: Automatically updates the preview as you edit files
 
 ![auto-sync](https://github.com/user-attachments/assets/7c512be9-632e-4cbb-930b-d8ac9a2263f9)
-
 
 - **Export Options**: Export animations to PNG or GIF
 - **Performance Stats**: View FPS, memory usage, and rendering statistics
 - **Animation Controls**: Play, pause, loop, and adjust playback speed
 - **Dark Mode**: Supports VSCode theme-aware styling
+
+[Back to contents](#contents)
 
 ## Usage
 
@@ -43,10 +57,11 @@ A Visual Studio Code extension that integrates [ThorVG Viewer](https://github.co
   - Syncs changes as you edit
   - Switches to the active file when you change editors
 
-## Commands
+[Back to contents](#contents)
+
+### Commands
 
 ![command](https://github.com/user-attachments/assets/5f549fa8-4eb6-4c39-b4f1-33f92d120bd3)
-
 
 All commands are accessible via Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`):
 
@@ -54,37 +69,38 @@ All commands are accessible via Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`
 - **ThorVG: Open Viewer with Current File** - Open ThorVG Viewer with current file and enable auto-sync
 - **ThorVG: Open Extension Folder** - Open `thorvg-viewer` folder (contains `thorvg.wasm`) for easy WASM updates
 
-
 ## Development
 
-### Proejct launch & tasks setting
+### Project Launch & Task Configuration
+
+**`.vscode/launch.json`**
 
 ```json
-// launch.json
-		{
-			"name": "Run Extension",
-			"type": "extensionHost",
-			"request": "launch",
-			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
-			],
-			"outFiles": [
-				"${workspaceFolder}/out/**/*.js"
-			],
-			"preLaunchTask": "${defaultBuildTask}"
-		},
+{
+	"name": "Run Extension",
+	"type": "extensionHost",
+	"request": "launch",
+	"args": [
+		"--extensionDevelopmentPath=${workspaceFolder}"
+	],
+	"outFiles": [
+		"${workspaceFolder}/out/**/*.js"
+	],
+	"preLaunchTask": "${defaultBuildTask}"
+},
 ```
 
+**`.vscode/tasks.json`**
+
 ```json
-// tasks.json
-		{
-			"type": "npm",
-			"script": "compile",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			}
-		},
+{
+	"type": "npm",
+	"script": "compile",
+	"group": {
+		"kind": "build",
+		"isDefault": true
+	}
+},
 ```
 
 ### Package Extension
@@ -99,8 +115,14 @@ vsce package
 
 This creates a `.vsix` file that can be installed in VSCode.
 
-## Supported File Formats
+### Requirements
 
-- **Lottie**: `.json`, `.lot`
-- **SVG**: `.svg`
-- **PNG**
+- Node.js >= 18
+- Visual Studio Code >= 1.85
+
+[Back to contents](#contents)
+
+## Communication
+For real-time conversations and discussions, please join us on Discord
+
+[Back to contents](#contents)
