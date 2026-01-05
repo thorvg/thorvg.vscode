@@ -125,8 +125,8 @@ This creates a `.vsix` file that can be installed in VSCode.
 
 ### Requirements
 
-- Node.js >= 18
-- Visual Studio Code >= 1.85
+- Node.js >= 20
+- Visual Studio Code >= 1.67
 
 [Back to contents](#contents)
 
