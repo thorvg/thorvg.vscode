@@ -1,6 +1,6 @@
 {
-  "name": "thorvg-viewer",
-  "displayName": "ThorVG Viewer",
+  "name": "thorvg-liveview",
+  "displayName": "ThorVG LiveView",
   "description": "View and preview Lottie animations and SVG files with ThorVG rendering engine",
   "version": "0.0.1",
   "publisher": "ThorVG",
