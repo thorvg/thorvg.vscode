@@ -27,22 +27,18 @@ A Visual Studio Code extension that integrates [ThorVG Viewer](https://github.co
 
 ## Features
 
-- **Real-time Preview**: View Lottie (`.json`, `.lot`) and SVG files directly in VSCode
+- **Liveview**:  Instantly preview Lottie (.json, .lot) and SVG files, automatically updates as you edit
 
 <p align="center">
   <img width="800" height="auto" src="https://github.com/user-attachments/assets/b30cf427-9a12-449a-adaa-3062141ba831"/>
 </p>
 
-- **Auto-sync**: Automatically updates the preview as you edit files
-
 <p align="center">
   <img width="800" height="auto" src="https://github.com/user-attachments/assets/7c512be9-632e-4cbb-930b-d8ac9a2263f9"/>
 </p>
 
-- **Export Options**: Export animations to PNG or GIF
-- **Performance Stats**: View FPS, memory usage, and rendering statistics
 - **Animation Controls**: Play, pause, loop, and adjust playback speed
-- **Dark Mode**: Supports VSCode theme-aware styling
+- **Performance Stats**: Monitor FPS, memory usage, and rendering performance in real time
 
 [Back to contents](#contents)
 
