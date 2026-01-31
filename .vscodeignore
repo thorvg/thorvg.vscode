@@ -27,3 +27,5 @@ thorvg-viewer/*.md
 nul
 convert-icon.js
 README_ICON.md
+
+.gitmodules
