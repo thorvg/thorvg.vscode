@@ -23,6 +23,7 @@
 
 import * as vscode from 'vscode';
 import { ThorVGViewerPanel } from './webview/ThorVGViewerPanel';
+import { getUriFromTabInput } from './utils/vscodeUtils';
 
 export function activate(context: vscode.ExtensionContext) {
     console.log('Extension "thorvg-viewer" is now active');
@@ -94,20 +95,4 @@ export function activate(context: vscode.ExtensionContext) {
 
 export function deactivate() {
     console.log('Extension "thorvg-viewer" is now deactivated');
-}
-
-function getUriFromTabInput(input: unknown): vscode.Uri | undefined {
-    if (!input || typeof input !== 'object') return undefined;
-
-    const candidate = input as {
-        uri?: vscode.Uri;
-        modified?: vscode.Uri;
-        original?: vscode.Uri;
-        notebookUri?: vscode.Uri;
-    };
-
-    return candidate.uri
-        || candidate.modified
-        || candidate.original
-        || candidate.notebookUri;
 }
