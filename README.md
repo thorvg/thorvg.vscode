@@ -4,8 +4,9 @@
 [![License](https://img.shields.io/badge/licence-MIT-green.svg?style=flat)](LICENSE)
 
 # ThorVG for VS Code
+
 <p align="center">
-  <img width="800" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/logo/512/thorvg-banner.png">
+  <img width="800" height="auto" src="https://raw.githubusercontent.com/thorvg/thorvg.site/refs/heads/main/readme/logo/512/thorvg-banner.png">
 </p>
 
 A Visual Studio Code extension that integrates [ThorVG Viewer](https://github.com/thorvg/thorvg.viewer) for previewing Lottie animations and SVG files directly inside the editor.
@@ -51,7 +52,7 @@ A Visual Studio Code extension that integrates [ThorVG Viewer](https://github.co
 - **Editor Icon**: Click the ThorVG icon in the editor title bar while a `.svg`, `.json`, or `.lot` file is open to preview it with automatic loading and syncing.
 
 <p align="center">
-	<img width="500" height="auto" alt="image" src="https://github.com/user-attachments/assets/5f044aaa-f242-4302-af44-dfd9fd782908" />
+	<img width="500" height="auto" alt="image" src="https://raw.githubusercontent.com/thorvg/thorvg.vscode/refs/heads/main/assets/editor_icon.png" />
 </p>
 
 - **Command Palette**: Use the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) to open ThorVG Preview.
