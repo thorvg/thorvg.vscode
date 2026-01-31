@@ -10,7 +10,7 @@
     "url": "https://github.com/thorvg/thorvg.vscode.git"
   },
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.67.0"
   },
   "categories": [
     "Visualization",
@@ -30,6 +30,7 @@
     "ui",
     "workspace"
   ],
+  "activationEvents": [],
   "contributes": {
     "commands": [
       {
