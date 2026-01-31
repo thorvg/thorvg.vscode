@@ -1,8 +1,8 @@
 {
   "name": "thorvg-liveview",
   "displayName": "ThorVG LiveView",
-  "description": "View and preview Lottie animations and SVG files with ThorVG rendering engine",
-  "version": "0.0.1",
+  "description": "A Visual Studio Code extension that integrates ThorVG Viewer for previewing Lottie animations and SVG files directly inside the editor.",
+  "version": "1.0.0",
   "publisher": "ThorVG",
   "icon": "media/icon.png",
   "repository": {
