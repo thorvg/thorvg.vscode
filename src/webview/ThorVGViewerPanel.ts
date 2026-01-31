@@ -45,6 +45,12 @@ export class ThorVGViewerPanel {
             this._webviewReadyResolver = resolve;
         });
 
+        // Set panel icon
+        this._panel.iconPath = {
+            light: vscode.Uri.joinPath(extensionUri, 'media', 'logo_black.png'),
+            dark: vscode.Uri.joinPath(extensionUri, 'media', 'logo_white.png')
+        };
+
         // Set the webview's initial html content
         void this._update();
 
