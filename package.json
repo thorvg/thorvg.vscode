@@ -22,7 +22,9 @@
     "animation",
     "thorvg",
     "viewer",
-    "preview"
+    "preview",
+    "playground",
+    "canvas"
   ],
   "main": "./out/extension.js",
   "browser": "./out/web/extension.js",
@@ -48,6 +50,15 @@
       {
         "command": "thorvg-viewer.openExtensionFolder",
         "title": "ThorVG: Open Extension Folder"
+      },
+      {
+        "command": "thorvg-viewer.openPlayground",
+        "title": "ThorVG: Open Playground"
+      },
+      {
+        "command": "thorvg-viewer.openPlaygroundWithCurrentFile",
+        "title": "ThorVG: Open Playground with File",
+        "icon": "$(play)"
       }
     ],
     "menus": {
@@ -55,6 +66,11 @@
         {
           "command": "thorvg-viewer.openThorVGViewerWithCurrentFile",
           "when": "resourceExtname == .json || resourceExtname == .svg || resourceExtname == .lot || resourceExtname == .png",
+          "group": "navigation"
+        },
+        {
+          "command": "thorvg-viewer.openPlaygroundWithCurrentFile",
+          "when": "resourceExtname == .js || resourceExtname == .ts || resourceExtname == .jsx || resourceExtname == .tsx",
           "group": "navigation"
         }
       ]
@@ -74,12 +90,14 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
+  "dependencies": {
+    "esbuild": "^0.27.2"
+  },
   "devDependencies": {
     "@types/node": "20.x",
     "@types/vscode": "^1.67.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
-    "esbuild": "^0.27.2",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   }

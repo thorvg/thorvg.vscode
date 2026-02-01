@@ -1,0 +1,75 @@
+<!--
+ * Copyright (c) 2025 - 2026 ThorVG project. All rights reserved.
+
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThorVG Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <label class="toolbar-label">Renderer:</label>
+                <select id="renderer" class="toolbar-select">
+                    <option value="sw" selected>Software</option>
+                    <option value="gl">WebGL</option>
+                    <option value="wg">WebGPU</option>
+                </select>
+
+                <div class="toolbar-divider"></div>
+
+                <label class="toolbar-checkbox">
+                    <input type="checkbox" id="auto-run" checked>
+                    <span>Auto Run</span>
+                </label>
+
+                <label class="toolbar-checkbox">
+                    <input type="checkbox" id="dark-canvas">
+                    <span>Dark Canvas</span>
+                </label>
+            </div>
+
+            <div class="toolbar-right">
+                <button id="clear-btn" class="toolbar-btn">Clear</button>
+                <button id="run-btn" class="toolbar-btn primary">Run</button>
+            </div>
+        </div>
+
+        <!-- Canvas Area -->
+        <div class="canvas-container">
+            <canvas id="canvas" width="600" height="600"></canvas>
+        </div>
+
+        <!-- Status Bar -->
+        <div id="status-bar" class="status-bar info">
+            Initializing ThorVG...
+        </div>
+    </div>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>

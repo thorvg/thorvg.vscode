@@ -1,0 +1,170 @@
+/*
+ * Copyright (c) 2025 - 2026 ThorVG project. All rights reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    font-size: 13px;
+    background-color: var(--vscode-editor-background, #1e1e1e);
+    color: var(--vscode-editor-foreground, #cccccc);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: var(--vscode-sideBar-background, #252526);
+    border-bottom: 1px solid var(--vscode-panel-border, #3e3e42);
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toolbar-label {
+    color: var(--vscode-descriptionForeground, #9d9d9d);
+}
+
+.toolbar-select {
+    padding: 4px 8px;
+    background-color: var(--vscode-dropdown-background, #3c3c3c);
+    color: var(--vscode-dropdown-foreground, #cccccc);
+    border: 1px solid var(--vscode-dropdown-border, #3c3c3c);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.toolbar-select:focus {
+    outline: 1px solid var(--vscode-focusBorder, #007acc);
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 20px;
+    background-color: var(--vscode-panel-border, #3e3e42);
+}
+
+.toolbar-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--vscode-descriptionForeground, #9d9d9d);
+}
+
+.toolbar-checkbox input {
+    cursor: pointer;
+}
+
+.toolbar-btn {
+    padding: 4px 12px;
+    background-color: var(--vscode-button-secondaryBackground, #3c3c3c);
+    color: var(--vscode-button-secondaryForeground, #cccccc);
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.toolbar-btn:hover {
+    background-color: var(--vscode-button-secondaryHoverBackground, #505050);
+}
+
+.toolbar-btn.primary {
+    background-color: var(--vscode-button-background, #0e639c);
+    color: var(--vscode-button-foreground, #ffffff);
+}
+
+.toolbar-btn.primary:hover {
+    background-color: var(--vscode-button-hoverBackground, #1177bb);
+}
+
+.toolbar-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Canvas Container */
+.canvas-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: auto;
+    background-color: var(--vscode-editor-background, #1e1e1e);
+}
+
+#canvas {
+    border: 1px solid var(--vscode-panel-border, #3e3e42);
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#canvas.dark {
+    background-color: #2d2d30;
+}
+
+/* Status Bar */
+.status-bar {
+    padding: 6px 12px;
+    font-size: 12px;
+    border-top: 1px solid var(--vscode-panel-border, #3e3e42);
+}
+
+.status-bar.info {
+    background-color: var(--vscode-statusBarItem-activeBackground, #007acc);
+    color: #ffffff;
+}
+
+.status-bar.success {
+    background-color: #89d185;
+    color: #1e1e1e;
+}
+
+.status-bar.error {
+    background-color: #f48771;
+    color: #ffffff;
+}
+
+.status-bar.warning {
+    background-color: #cca700;
+    color: #1e1e1e;
+}

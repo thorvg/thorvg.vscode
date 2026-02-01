@@ -23,6 +23,7 @@
 
 import * as vscode from 'vscode';
 import { ThorVGViewerPanel } from './webview/ThorVGViewerPanel';
+import { PlaygroundPanel } from './webview/PlaygroundPanel';
 import { getUriFromTabInput } from './utils/vscodeUtils';
 
 export function activate(context: vscode.ExtensionContext) {
@@ -90,7 +91,33 @@ export function activate(context: vscode.ExtensionContext) {
         }
     );
 
-    context.subscriptions.push(thorvgDisposable, thorvgCurrentFileDisposable, openExtensionFolderDisposable);
+    // Register command to open Playground
+    const playgroundDisposable = vscode.commands.registerCommand(
+        'thorvg-viewer.openPlayground',
+        () => {
+            PlaygroundPanel.createOrShow(context.extensionUri);
+        }
+    );
+
+    // Register command to open Playground with current file
+    const playgroundCurrentFileDisposable = vscode.commands.registerCommand(
+        'thorvg-viewer.openPlaygroundWithCurrentFile',
+        async (uri?: vscode.Uri) => {
+            const resolvedUri = uri
+                || vscode.window.activeTextEditor?.document.uri
+                || getUriFromTabInput(vscode.window.tabGroups.activeTabGroup?.activeTab?.input);
+
+            await PlaygroundPanel.createOrShowWithCurrentFile(context.extensionUri, resolvedUri);
+        }
+    );
+
+    context.subscriptions.push(
+        thorvgDisposable,
+        thorvgCurrentFileDisposable,
+        openExtensionFolderDisposable,
+        playgroundDisposable,
+        playgroundCurrentFileDisposable
+    );
 }
 
 export function deactivate() {

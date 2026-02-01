@@ -26,6 +26,12 @@ export const SUPPORTED_EXTENSIONS = {
     ALL: ['svg', 'json', 'lot', 'png'] as const,
 } as const;
 
+export const PLAYGROUND_EXTENSIONS = {
+    SCRIPT: ['js', 'ts'] as const,
+    JSX: ['jsx', 'tsx'] as const,
+    ALL: ['js', 'ts', 'jsx', 'tsx'] as const,
+} as const;
+
 export const DEFAULT_VIEWER_SIZE = 256;
 
 export function isTextBasedFormat(ext: string): boolean {
@@ -38,4 +44,8 @@ export function isBinaryFormat(ext: string): boolean {
 
 export function isSupportedFormat(ext: string): boolean {
     return (SUPPORTED_EXTENSIONS.ALL as readonly string[]).includes(ext.toLowerCase());
+}
+
+export function isPlaygroundFile(ext: string): boolean {
+    return (PLAYGROUND_EXTENSIONS.ALL as readonly string[]).includes(ext.toLowerCase());
 }
