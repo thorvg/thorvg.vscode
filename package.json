@@ -59,6 +59,10 @@
         "command": "thorvg-viewer.openPlaygroundWithCurrentFile",
         "title": "ThorVG: Open Playground with File",
         "icon": "$(play)"
+      },
+      {
+        "command": "thorvg-viewer.enableWebcanvasIntellisense",
+        "title": "ThorVG: Enable WebCanvas IntelliSense"
       }
     ],
     "menus": {

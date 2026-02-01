@@ -24,6 +24,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 import { getBundler, BundleResult } from '../services/bundler';
 import { PLAYGROUND_EXTENSIONS, isPlaygroundFile } from '../constants';
+import { ensureWebcanvasIntellisenseForDocument } from '../services/intellisense';
 
 export class PlaygroundPanel {
     public static currentPanel: PlaygroundPanel | undefined;
@@ -232,6 +233,8 @@ export class PlaygroundPanel {
     private async _loadDocument(document: vscode.TextDocument) {
         this._currentDocument = document;
         this._currentFileUri = document.uri;
+
+        await ensureWebcanvasIntellisenseForDocument(document, this._extensionUri);
 
         // Update panel title
         const fileName = path.basename(document.fileName);

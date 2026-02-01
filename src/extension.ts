@@ -25,6 +25,7 @@ import * as vscode from 'vscode';
 import { ThorVGViewerPanel } from './webview/ThorVGViewerPanel';
 import { PlaygroundPanel } from './webview/PlaygroundPanel';
 import { getUriFromTabInput } from './utils/vscodeUtils';
+import { ensureWebcanvasIntellisenseForDocument } from './services/intellisense';
 
 export function activate(context: vscode.ExtensionContext) {
     console.log('Extension "thorvg-viewer" is now active');
@@ -111,12 +112,30 @@ export function activate(context: vscode.ExtensionContext) {
         }
     );
 
+    // Register command to enable WebCanvas IntelliSense
+    const enableWebcanvasIntellisenseDisposable = vscode.commands.registerCommand(
+        'thorvg-viewer.enableWebcanvasIntellisense',
+        async () => {
+            const document = vscode.window.activeTextEditor?.document;
+            if (!document) {
+                vscode.window.showErrorMessage('No active editor found.');
+                return;
+            }
+
+            await ensureWebcanvasIntellisenseForDocument(document, context.extensionUri);
+            vscode.window.showInformationMessage(
+                'ThorVG WebCanvas IntelliSense enabled for this file. If suggestions do not appear, run "TypeScript: Restart TS Server".'
+            );
+        }
+    );
+
     context.subscriptions.push(
         thorvgDisposable,
         thorvgCurrentFileDisposable,
         openExtensionFolderDisposable,
         playgroundDisposable,
-        playgroundCurrentFileDisposable
+        playgroundCurrentFileDisposable,
+        enableWebcanvasIntellisenseDisposable
     );
 }
 
