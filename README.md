@@ -1,7 +1,7 @@
-[![Discord](https://img.shields.io/badge/Community-5865f2?style=flat&logo=discord&logoColor=white)](https://discord.gg/n25xj6J6HM)
-[![ThorVGPT](https://img.shields.io/badge/ThorVGPT-76A99C?style=flat&logo=openai&logoColor=white)](https://chat.openai.com/g/g-Ht3dYIwLO-thorvgpt)
-[![OpenCollective](https://img.shields.io/badge/OpenCollective-84B5FC?style=flat&logo=opencollective&logoColor=white)](https://opencollective.com/thorvg)
 [![License](https://img.shields.io/badge/licence-MIT-green.svg?style=flat)](LICENSE)
+[![Discord](https://img.shields.io/badge/Community-5865f2?style=flat&logo=discord&logoColor=white)](https://discord.gg/n25xj6J6HM)
+[![OpenCollective](https://img.shields.io/badge/OpenCollective-84B5FC?style=flat&logo=opencollective&logoColor=white)](https://opencollective.com/thorvg)
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/thorvg.thorvg-liveview?label=VS%20Code%20LiveView&logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=thorvg.thorvg-liveview)
 
 # ThorVG for VS Code
 
@@ -9,7 +9,7 @@
   <img width="800" height="auto" src="https://raw.githubusercontent.com/thorvg/thorvg.site/refs/heads/main/readme/logo/512/thorvg-banner.png">
 </p>
 
-A Visual Studio Code extension that integrates [ThorVG Viewer](https://github.com/thorvg/thorvg.viewer) for previewing Lottie animations and SVG files directly inside the editor.
+A [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=thorvg.thorvg-liveview) that integrates [ThorVG Viewer](https://github.com/thorvg/thorvg.viewer) for previewing Lottie animations and SVG files directly inside the editor.
 
 ## Contents
 - [ThorVG for VS Code](#thorvg-for-vs-code)
