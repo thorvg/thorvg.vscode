@@ -11,9 +11,12 @@ function applyViewerSize(nextSize) {
         return;
     }
     window.size = parsed;
-    if (window.player) {
-        window.resize(window.size, window.size);
-        window.refreshZoomValue();
+    var slider = document.getElementById('zoom-slider');
+    if (slider) {
+        slider.value = Math.round(parsed * 300 / 1500);
+        if (window.player) {
+            slider.dispatchEvent(new Event('input'));
+        }
     }
 }
 
@@ -316,11 +319,8 @@ function updateRendererSelection(next) {
         switch (message.command) {
             case 'loadFile':
                 // File selected from VSCode file picker
-                if (isFirstTarget) {
-                    updateRendererSelection('sw');
-                }
+  
                 processFileData(message.fileName, message.fileData);
-                isFirstTarget = false;
                 break;
             case 'setViewerSize':
                 console.log('VSCode Bridge: Setting viewer size to', message.size);
@@ -384,7 +384,6 @@ function updateRendererSelection(next) {
             if (typeof window.createFilesListTab === 'function') {
                 console.log('VSCode Bridge: Calling createFilesListTab');
                 window.createFilesListTab();
-                applyViewerSize(window.size);
             } else {
                 console.warn('VSCode Bridge: createFilesListTab not available');
             }
