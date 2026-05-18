@@ -2,7 +2,7 @@
   "name": "thorvg-liveview",
   "displayName": "ThorVG LiveView",
   "description": "A Visual Studio Code extension that integrates ThorVG Viewer for previewing Lottie animations and SVG files directly inside the editor.",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "publisher": "ThorVG",
   "icon": "media/logo.png",
   "repository": {
@@ -67,6 +67,7 @@
     "compile:web": "npm run check-types:web && node esbuild.js",
     "watch": "tsc -watch -p ./",
     "watch:web": "node esbuild.js --watch",
+    "package": "npx @vscode/vsce package",
     "package-web": "npm run check-types:web && node esbuild.js --production",
     "open:web": "npm run compile:web && npx @vscode/test-web --quality stable --extensionDevelopmentPath . --host localhost --port 3112 --esm",
     "open:web:headless": "npm run compile:web && npx @vscode/test-web --quality stable --extensionDevelopmentPath . --host localhost --port 3112 --esm --browserType chromium --headless --verbose",
