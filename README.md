@@ -7,7 +7,7 @@
 # ThorVG for VS Code
 
 <p align="center">
-  <img width="800" height="auto" src="https://raw.githubusercontent.com/thorvg/thorvg.site/refs/heads/main/readme/logo/512/thorvg-banner.png">
+  <img width="550" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/logo/animated_brand.svg">
 </p>
 
 A [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=thorvg.thorvg-liveview) that integrates [ThorVG Viewer](https://github.com/thorvg/thorvg.viewer) for previewing Lottie animations and SVG files directly inside the editor.
