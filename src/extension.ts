@@ -52,8 +52,8 @@ export function activate(context: vscode.ExtensionContext) {
     const openExtensionFolderDisposable = vscode.commands.registerCommand(
         'thorvg-viewer.openExtensionFolder',
         async () => {
-            // Point to thorvg-viewer folder where WASM file is located
-            const thorvgViewerUri = vscode.Uri.joinPath(context.extensionUri, 'thorvg-viewer');
+            // Point to thorvg.view folder where WASM file is located
+            const thorvgViewerUri = vscode.Uri.joinPath(context.extensionUri, 'thorvg.view');
             const thorvgViewerPath = thorvgViewerUri.fsPath;
 
             // Show quick pick in command palette
@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
                 [
                     {
                         label: '$(folder-opened) Open Folder',
-                        description: 'Open thorvg-viewer folder (contains thorvg.wasm)',
+                        description: 'Open thorvg.view folder (contains thorvg.wasm)',
                         action: 'open'
                     },
                     {
@@ -80,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
             }
 
             if (action.action === 'open') {
-                // Open the thorvg-viewer folder in file explorer
+                // Open the thorvg.view folder in file explorer
                 await vscode.commands.executeCommand('revealFileInOS', thorvgViewerUri);
             } else if (action.action === 'copy') {
                 // Copy path to clipboard

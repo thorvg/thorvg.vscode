@@ -215,8 +215,8 @@ export class ThorVGViewerPanel {
                 retainContextWhenHidden: true,
                 localResourceRoots: [
                     vscode.Uri.joinPath(extensionUri, 'media'),
-                    vscode.Uri.joinPath(extensionUri, 'thorvg.viewer'),
-                    vscode.Uri.joinPath(extensionUri, 'thorvg.viewer', 'icon')
+                    vscode.Uri.joinPath(extensionUri, 'thorvg.view'),
+                    vscode.Uri.joinPath(extensionUri, 'thorvg.view', 'icon')
                 ]
             }
         );
@@ -244,8 +244,8 @@ export class ThorVGViewerPanel {
                 retainContextWhenHidden: true,
                 localResourceRoots: [
                     vscode.Uri.joinPath(extensionUri, 'media'),
-                    vscode.Uri.joinPath(extensionUri, 'thorvg.viewer'),
-                    vscode.Uri.joinPath(extensionUri, 'thorvg.viewer', 'icon')
+                    vscode.Uri.joinPath(extensionUri, 'thorvg.view'),
+                    vscode.Uri.joinPath(extensionUri, 'thorvg.view', 'icon')
                 ]
             }
         );
@@ -506,11 +506,11 @@ export class ThorVGViewerPanel {
     }
 
     private async _getHtmlForWebview(webview: vscode.Webview): Promise<string> {
-        // Get resource URIs for ThorVG Viewer assets (from thorvg.viewer submodule)
-        const thorvgViewerUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'thorvg.viewer'));
+        // Get resource URIs for ThorVG Viewer assets (from thorvg.view submodule)
+        const thorvgViewerUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'thorvg.view'));
         const bridgeJsUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'media', 'vscode-bridge.js'));
 
-        const indexHtmlPath = vscode.Uri.joinPath(this._extensionUri, 'thorvg.viewer', 'index.html');
+        const indexHtmlPath = vscode.Uri.joinPath(this._extensionUri, 'thorvg.view', 'index.html');
         const htmlBytes = await vscode.workspace.fs.readFile(indexHtmlPath);
         let html = new TextDecoder('utf-8').decode(htmlBytes);
 
