@@ -29,3 +29,6 @@ convert-icon.js
 README_ICON.md
 
 .gitmodules
+
+# Local publishing credentials
+token
