@@ -167,34 +167,42 @@ function updateRendererSelection(next) {
                 try {
                     console.log('VSCode Bridge: Exporting PNG...');
 
-                    // Try multiple methods to get canvas
-                    let canvas = null;
-
-                    // Method 1: Try shadowRoot
-                    if (window.player.shadowRoot) {
-                        canvas = window.player.shadowRoot.querySelector('canvas');
-                        console.log('VSCode Bridge: Tried shadowRoot, canvas found:', !!canvas);
+                    // Use the player's PNG export API and forward its download to VS Code.
+                    let capturedBlob = null;
+                    let capturedUrl = null;
+                    const originalCreateObjectURL = URL.createObjectURL;
+                    const originalClick = HTMLAnchorElement.prototype.click;
+                    try {
+                        URL.createObjectURL = function(blob) {
+                            const url = originalCreateObjectURL.call(URL, blob);
+                            if (blob instanceof Blob && blob.type === 'image/png') {
+                                capturedBlob = blob;
+                                capturedUrl = url;
+                            }
+                            return url;
+                        };
+                        HTMLAnchorElement.prototype.click = function() {
+                            if (this.download && this.href === capturedUrl) {
+                                return;
+                            }
+                            return originalClick.call(this);
+                        };
+                        await window.player.save2png(window.filedata);
+                    } finally {
+                        URL.createObjectURL = originalCreateObjectURL;
+                        HTMLAnchorElement.prototype.click = originalClick;
+                        if (capturedUrl) URL.revokeObjectURL(capturedUrl);
                     }
 
-                    // Method 2: Try direct querySelector
-                    if (!canvas) {
-                        canvas = window.player.querySelector('canvas');
-                        console.log('VSCode Bridge: Tried querySelector, canvas found:', !!canvas);
+                    if (!capturedBlob) {
+                        throw new Error('The player did not generate PNG data.');
                     }
-
-                    // Method 3: Check if player itself is a canvas
-                    if (!canvas && window.player.tagName === 'CANVAS') {
-                        canvas = window.player;
-                        console.log('VSCode Bridge: Player itself is canvas');
-                    }
-
-                    if (!canvas) {
-                        throw new Error('Canvas not found. Player structure: ' + window.player.tagName);
-                    }
-
-                    // Convert canvas to data URL directly
-                    const dataUrl = canvas.toDataURL('image/png');
-                    console.log('VSCode Bridge: PNG data ready, length:', dataUrl.length);
+                    const dataUrl = await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = () => reject(reader.error);
+                        reader.readAsDataURL(capturedBlob);
+                    });
 
                     // Send to extension for saving
                     vscode.postMessage({
